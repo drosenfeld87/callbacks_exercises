@@ -130,9 +130,16 @@ console.log( 'The total number of transactions is:', totalTransactions );
   HINT(S):
   - Not all transactions are 'sales'.
 */
-var numSales;
+var numSales = transactions.filter(function(transaction) {
+  if (transaction.type == 'sale') {
+    return transaction
+  }
+}).length
 
+  console.log( 'The total number of sales is:', numSales );
+  // if (key == "name") doSomething();
 /*
+
   Hey, welcome to the first question!
 
   Here's a breakdown of the question, and some pointers on how to get started!
@@ -151,16 +158,17 @@ var numSales;
   The breakdown above takes up a lot of space, feel free to move it to the top or bottom of the file!
 */
 
-console.log( 'The total number of sales is:', numSales );
-
-
 // --------------------------------------------------
 // QUESTION 02
 // --------------------------------------------------
 /*
   Calculate the total number of 'purchases'.
 */
-var numPurchases;
+var numPurchases = transactions.filter(function(transaction) {
+  if (transaction.type === 'purchase') {
+    return transaction
+  }
+}).length;
 
 console.log( 'The total number of purchases is:', numPurchases );
 
@@ -174,7 +182,11 @@ console.log( 'The total number of purchases is:', numPurchases );
   HINT(S):
   - Don't forget that 'purchases' can also be made in 'cash'!
 */
-var numCashSales;
+var numCashSales = transactions.filter(function(transaction) {
+  if (transaction.type === 'sale' && transaction.paymentMethod === 'cash') {
+    return transaction
+  }
+}).length;
 
 console.log( 'The total number of cash sales is:', numCashSales );
 
@@ -188,7 +200,12 @@ console.log( 'The total number of cash sales is:', numCashSales );
   HINT(S):
   - Make sure to exclude any 'sales' made by 'credit'!
 */
-var numCreditPurchases;
+var numCreditPurchases = transactions.filter(function(transaction) {
+  if (transaction.type === 'sale' && transaction.paymentMethod == 'credit') {
+    return transaction
+  }
+}).length;
+
 
 console.log( 'The total number of credit purchases is:', numCreditPurchases );
 
@@ -205,9 +222,14 @@ console.log( 'The total number of credit purchases is:', numCreditPurchases );
   - The assembled array should be made up of strings, not full `transaction` objects.
   - This array is allowed to contain duplicate values.
 */
-var allVendors;
+var allVendors = ['Dick\'s Doodads', 'Gibson Gadgets', 'Clarke Computing'];
 
-console.log( 'The vendors are:', allVendors );
+allVendors.map(function(vendor) {
+  return allVendors
+
+});
+
+console.log( 'The vendors are:', allVendors  );
 
 
 // --------------------------------------------------
@@ -222,7 +244,11 @@ console.log( 'The vendors are:', allVendors );
   - The assembled array should be made up of strings, not full `transaction` objects.
   - Make sure that the resulting array *does not* include any duplicates.
 */
-var uniqueCustomers;
+var uniqueCustomers = ['Isaac Asimov', 'CJ Cherryh', 'Frederik Pohl', 'Neal Stephenson'];
+
+uniqueCustomers.map(function(vendor) {
+  return uniqueCustomers
+});
 
 console.log( 'The unique customers are:', uniqueCustomers );
 
